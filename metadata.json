@@ -1,0 +1,6 @@
+{
+  "name": "Pulse — Session Diagnostics",
+  "description": "A modern SaaS-style client-side diagnostics dashboard inspecting health, privacy, network, and device signals in real time.",
+  "requestFramePermissions": ["camera", "microphone", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
