@@ -1,6 +1,6 @@
 {
-  "name": "Pulse — Session Diagnostics",
-  "description": "A modern SaaS-style client-side diagnostics dashboard inspecting health, privacy, network, and device signals in real time.",
+  "name": "Pulse Session Diagnostics",
+  "description": "A modern SaaS-style client-side diagnostics dashboard with Pakistani ISP speed benchmarks, PTA device compliance, browser health, privacy, and device signals.",
   "requestFramePermissions": ["camera", "microphone", "geolocation"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

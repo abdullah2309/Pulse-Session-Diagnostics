@@ -15,12 +15,19 @@ import SpeedTester from './SpeedTester';
 import GpuBenchmarker from './GpuBenchmarker';
 import SecurityAudit from './SecurityAudit';
 import NetworkTracer from './NetworkTracer';
+import PakistanCDN from './PakistanCDN';
+import PtaCompliance from './PtaCompliance';
 import TroubleWizard from './TroubleWizard';
 import SupportCompanion from './SupportCompanion';
+import AiRecommendations from './AiRecommendations';
+import AiChatAssistant from './AiChatAssistant';
+import CompatibilityChecker from './CompatibilityChecker';
+import SessionReportExporter from './SessionReportExporter';
+import UserAccountHub from './UserAccountHub';
 import Footer from './Footer';
 import { runDiagnostics, measureLatency } from '../lib/diagnostics';
 import { DiagnosticsReport, LiveMetric } from '../types';
-import { Layers, Video, Gauge, HelpCircle, FileText, Cpu, Fingerprint, Route } from 'lucide-react';
+import { Layers, Video, Gauge, HelpCircle, FileText, Cpu, Fingerprint, Route, Globe, Smartphone, Sparkles, Shield, FileDown, CheckSquare } from 'lucide-react';
 
 export default function Dashboard() {
   const [report, setReport] = useState<DiagnosticsReport | null>(null);
@@ -29,7 +36,7 @@ export default function Dashboard() {
   const [uptimeSeconds, setUptimeSeconds] = useState<number>(0);
   const [metricsHistory, setMetricsHistory] = useState<LiveMetric[]>([]);
   const [isDark, setIsDark] = useState<boolean>(true);
-  const [workspaceTab, setWorkspaceTab] = useState<'telemetry' | 'hardware' | 'speed' | 'gpu' | 'fingerprint' | 'routing' | 'remediation' | 'support'>('telemetry');
+  const [workspaceTab, setWorkspaceTab] = useState<'telemetry' | 'ai_diagnostics' | 'hardware' | 'speed' | 'gpu' | 'fingerprint' | 'routing' | 'pakcdn' | 'pta' | 'compatibility' | 'export' | 'remediation' | 'support' | 'user_account'>('telemetry');
 
   const fpsRef = useRef<number>(60);
   const latestLatencyRef = useRef<number>(10);
@@ -208,11 +215,17 @@ export default function Dashboard() {
                 <div className="flex flex-wrap gap-1 bg-muted/40 p-1 rounded-2xl border border-border/60 w-full xl:w-auto">
                   {[
                     { id: 'telemetry', label: 'Telemetry Logs', icon: Layers },
+                    { id: 'ai_diagnostics', label: '🤖 Pulse AI Center', icon: Sparkles },
                     { id: 'hardware', label: 'Media Hardware', icon: Video },
                     { id: 'speed', label: 'Bandwidth Speed', icon: Gauge },
                     { id: 'gpu', label: 'GPU Benchmark', icon: Cpu },
                     { id: 'fingerprint', label: 'Privacy & Security', icon: Fingerprint },
                     { id: 'routing', label: 'Route Tracer', icon: Route },
+                    { id: 'pakcdn', label: '🇵🇰 Pak CDN Hubs', icon: Globe },
+                    { id: 'pta', label: '🇵🇰 PTA Tax Calculator', icon: Smartphone },
+                    { id: 'compatibility', label: '💻 Browser Compat', icon: CheckSquare },
+                    { id: 'export', label: '📁 Session Exporter', icon: FileDown },
+                    { id: 'user_account', label: '🔒 Secure Profile', icon: Shield },
                     { id: 'remediation', label: 'Fix Wizard', icon: HelpCircle },
                     { id: 'support', label: 'Support Sync', icon: FileText },
                   ].map((tab) => {
@@ -224,7 +237,7 @@ export default function Dashboard() {
                         onClick={() => setWorkspaceTab(tab.id as any)}
                         className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer flex-1 xl:flex-initial justify-center xl:justify-start ${
                           isActive
-                            ? 'bg-card text-teal-500 dark:text-teal-400 shadow-xs border border-border'
+                            ? 'bg-card text-emerald-500 dark:text-emerald-400 shadow-xs border border-border'
                             : 'text-muted-foreground hover:text-foreground hover:bg-muted/30'
                         }`}
                       >
@@ -239,11 +252,26 @@ export default function Dashboard() {
               {/* Dynamic workspace view rendering */}
               <div className="transition-all duration-300">
                 {workspaceTab === 'telemetry' && <TabbedExplorer report={report} />}
+                {workspaceTab === 'ai_diagnostics' && (
+                  <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-stretch">
+                    <div className="xl:col-span-7">
+                      <AiRecommendations report={report} />
+                    </div>
+                    <div className="xl:col-span-5">
+                      <AiChatAssistant report={report} />
+                    </div>
+                  </div>
+                )}
                 {workspaceTab === 'hardware' && <MediaDiagnostic />}
                 {workspaceTab === 'speed' && <SpeedTester />}
                 {workspaceTab === 'gpu' && <GpuBenchmarker />}
                 {workspaceTab === 'fingerprint' && <SecurityAudit />}
                 {workspaceTab === 'routing' && <NetworkTracer />}
+                {workspaceTab === 'pakcdn' && <PakistanCDN />}
+                {workspaceTab === 'pta' && <PtaCompliance />}
+                {workspaceTab === 'compatibility' && <CompatibilityChecker />}
+                {workspaceTab === 'export' && <SessionReportExporter report={report} />}
+                {workspaceTab === 'user_account' && <UserAccountHub report={report} />}
                 {workspaceTab === 'remediation' && <TroubleWizard report={report} />}
                 {workspaceTab === 'support' && <SupportCompanion report={report} />}
               </div>

@@ -69,14 +69,14 @@ export default function Header({
     <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-border/80 pb-6 mb-6">
       {/* Brand Logo & Name */}
       <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-tr from-teal-500 to-emerald-400 text-slate-900 shadow-md shadow-teal-500/10">
-          <Activity className="h-5 w-5 animate-pulse" />
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-tr from-emerald-600 to-teal-400 text-slate-900 shadow-md shadow-emerald-500/15">
+          <span className="text-lg font-bold text-slate-900 select-none">🇵🇰</span>
         </div>
         <div>
           <h1 className="text-xl font-bold tracking-tight text-foreground flex items-center gap-2">
-            Pulse <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-teal-500/10 text-teal-500 dark:text-teal-400 border border-teal-500/20">Session Diagnostics</span>
+            Pulse Session Diagnostics <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 border border-emerald-500/20 flex items-center gap-1">🇵🇰 Pakistan Edition</span>
           </h1>
-          <p className="text-xs text-muted-foreground mt-0.5">Real-time browser telemetry, network, and privacy scanner</p>
+          <p className="text-xs text-muted-foreground mt-0.5">National ISP Benchmarks, PTA DIRBS Diagnostics & Telemetry Scanner</p>
         </div>
       </div>
 
