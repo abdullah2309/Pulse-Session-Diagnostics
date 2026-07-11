@@ -2,4 +2,4 @@
 <hr/>
 <p>National ISP Benchmarks, PTA DIRBS Diagnostics & Telemetry Scanner</p>
 
-live : https://getpcdata.netlify.app/
+live link : https://getpcdata.netlify.app/
