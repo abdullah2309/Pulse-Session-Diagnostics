@@ -2,7 +2,7 @@
 const testing()=>{
   return(
     <>
-  <p></p>
+  <p>Testing</p>
   </>
   );
 }
