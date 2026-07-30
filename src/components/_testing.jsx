@@ -1,4 +1,5 @@
-@import a form "../../home/home.jsx"
+import a form "../../home/home.jsx"
+import logo form "../../assets/images/logo/png"
 const testing()=>{
   return(
     <>
