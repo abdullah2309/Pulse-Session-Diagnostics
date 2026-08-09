@@ -1,6 +1,6 @@
 import a form "../../home/home.jsx"
 import logo form "../../assets/images/logo/png";
-import logo form "../../assets/images/logo/png"
+import logo1 form "../../assets/images/logo1/png;
 const testing()=>{
   return(
     <>
