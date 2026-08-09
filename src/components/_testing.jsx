@@ -6,6 +6,7 @@ const testing()=>{
     <>
   <p>Testing</p>
   <p>Testing....</p>
+  <p>your are</p>
       <img src={logo} alt="logo" />
       <img src={logo1} alt="logo" />
   </>
