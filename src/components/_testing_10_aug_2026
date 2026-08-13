@@ -1,4 +1,4 @@
-import form "../../assets/img/k.png";
+import k form "../../assets/img/k.png";
 
 export const test (e)=>{
          <h1>Abdullah</h1>
