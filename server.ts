@@ -8,7 +8,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { createServer as createViteServer } from 'vite';
 
-// Since we compile this file using esbuild to CJS in production,
+// Since we compile this file using esbuild to CJS in production, 
 // let's define __dirname gracefully for both ESM and CJS environments.
 let currentDirname = '';
 try {
